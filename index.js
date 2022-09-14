@@ -20,6 +20,11 @@ const questions = [
         message: "what is your email?"
     },
     {
+        type: "input", 
+        name: "officeNumber", 
+        message: "what is your office number?"
+    },
+    {
         type: "list", 
         name: "typeEmployee", 
         message: "what type of employee would you like to add?",

@@ -10,16 +10,26 @@ const questions = [
         message: "what is your name?"
     },
     {
+        type: "input", 
+        name: "id", 
+        message: "what is your employee id?"
+    },
+    {
+        type: "input", 
+        name: "email", 
+        message: "what is your email?"
+    },
+    {
         type: "list", 
-        name: "favFood", 
-        message: "what is your fav food?",
-        choices: ["tacos", "nachos", "no food"]
+        name: "typeEmployee", 
+        message: "what type of employee would you like to add?",
+        choices: ["Engineer", "Intern", "No More Employees"]
     }
 ]
 
 // function to create html file for team
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err)=>
+    fs.writeFile(fileName, data, (err) =>
         (err) ? console.log("error") : console.log("HTML File Generated")
     )
 }

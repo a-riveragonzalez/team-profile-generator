@@ -2,6 +2,9 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateHTML = require("./src/generateHTML")
 
+// empty array 
+// push 
+
 // todo an array of questions for user input (maybe this will change depending on classes..)
 const questions = [
     {
@@ -28,9 +31,11 @@ const questions = [
         type: "list", 
         name: "typeEmployee", 
         message: "what type of employee would you like to add?",
-        choices: ["Engineer", "Intern", "No More Employees"]
+        choices: ["Engineer","Intern","No More Employees"],
     }
 ]
+
+
 
 // function to create html file for team
 function writeToFile(fileName, data) {
@@ -42,8 +47,15 @@ function writeToFile(fileName, data) {
 // function to use inquirer to get user input at start
 function init() {
     inquirer.prompt (questions)
-    .then((answers)=>{
+    .then(function(answers){
         const htmlOutput = generateHTML(answers)
+
+        if (answers.typeEmployee === "Engineer"){
+            console.log("i'm an engineer!")
+        } else if (answers.typeEmployee === "Intern"){
+            console.log("i'm an intern")
+        }
+
         writeToFile("team.html", htmlOutput)
     })
 }

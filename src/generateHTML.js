@@ -2,7 +2,10 @@ const { default: ListPrompt } = require("inquirer/lib/prompts/list") //? what is
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 
-// todo function that returns the license link
+// todo function that returns the license link (loop..?)
+// think filter , map, loops, 
+// ask questions, push constructors, 
+// filter, map , push , join()
 function renderEmployeeCards(typeEmployee) {
     if (typeEmployee==="Engineer"){
       return `

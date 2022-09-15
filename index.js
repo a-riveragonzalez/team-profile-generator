@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateHTML = require("./src/generateHTML")
+const renderEmployeeCards = require("./src/generateHTML")[0];
 
 // make an empty array where the questions will get pushed 
 // push questions depending on class 
@@ -37,22 +37,6 @@ const questions = [
         message: "what type of employee would you like to add?",
         choices: ["Engineer","Intern","No More Employees"],
     },
-    // {
-    //     type: "input", 
-    //     name: "github", 
-    //     message: "what is your github username?",
-    //     when(answers) {
-    //         return answers.typeEmployee === "Engineer"
-    //     }, 
-    // },
-    // {
-    //     type: "input", 
-    //     name: "school", 
-    //     message: "what is the name of your school?",
-    //     when(answers) {
-    //         return answers.typeEmployee === "Intern"
-    //     }, 
-    // }
 ]
 
 
@@ -101,9 +85,9 @@ async function init() {
         
     }
 
-    console.log(employeeArray)
+    // console.log(employeeArray)
 
-    // const htmlOutput = generateHTML(answers)
+    const htmlOutput = renderEmployeeCards(employeeArray)
     // writeToFile("team.html", htmlOutput)
     
 }

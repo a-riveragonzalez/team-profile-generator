@@ -1,4 +1,5 @@
 const { default: ListPrompt } = require("inquirer/lib/prompts/list") //? what is this?
+const Manager = require('../lib/Manager');
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 
@@ -7,49 +8,116 @@ const Intern = require('../lib/Intern');
 // ask questions, push constructors, 
 // filter, map , push , join()
 
-const employeeArray = []
+function renderEmployeeCards(employeeArray) {
+    // const answerArray = employeeArray;
+    // this is the empty array that all the cards html will get pushed into
+    const htmlOutputArray = []
 
-function renderEmployeeCards(typeEmployee) {
-    if (typeEmployee==="Engineer"){
-      return `
-      <article class="col mb-4">
-        <div class="card">
-          <div class="card-header text-center">
-              <h4 class="card-title">Name Here</h4>
-              <h5>Job Position</h5>
-          </div>
-          <div class="card-body">
-              <ul class="list-group list-group-flush">
-                  <li class="list-group-item">ID: </li>
-                  <li class="list-group-item">Email: </li>
-                  <li class="list-group-item">GitHub : </li>
-              </ul>
-          </div>
-        </div>
-      </article>
-      `
+    // this is so i can test the function easily 
+    const testingArray = [
+        {
+          name: 'arely',
+          id: 'asdfas',
+          email: 'asdfasd',
+          officeNumber: 'asdfasd',
+          typeEmployee: 'Engineer'
+        },
+        {
+          name: 'demi',
+          id: 'asdfasd',
+          email: 'asdfas',
+          github: 'dasdfasdf',
+          typeEmployee: 'Intern'
+        },
+        {
+          name: 'ruby',
+          id: 'asdfas',
+          email: 'dfasdfas',
+          school: 'fsdfasd',
+          typeEmployee: 'No More Employees'
+        }
+    ]
+
+    // return console.log(testingArray);
+
+    function testManager(answer){
+        if(answer.officeNumber){
+            return true;
+        }
     }
-    if (typeEmployee==="Intern"){
-      return `
-      <article class="col mb-4">
-            <div class="card">
-              <div class="card-header text-center">
-                  <h4 class="card-title">Name Here</h4>
-                  <h5>Job Position</h5>
-              </div>
-              <div class="card-body">
-                  <ul class="list-group list-group-flush">
-                      <li class="list-group-item">ID: </li>
-                      <li class="list-group-item">Email: </li>
-                      <li class="list-group-item">School : </li>
-                  </ul>
-              </div>
-          </div>
-      </article>`
+
+    function testEngineer(answer){
+        if(answer.github){
+            return true;
+        }
     }
-    if (typeEmployee==="No More Employees"){
-      return ``
-    }  
+
+    function testIntern(answer){
+        if(answer.school){
+            return true;
+        }
+    }
+
+    // filter array, check to see if it has an office number. if yes make it a manager
+    const managerArray = testingArray.filter(testManager).map(item => new Manager(item));
+
+    const engineerArray = testingArray.filter(testEngineer).map(item => new Engineer(item));
+
+    const internArray = testingArray.filter(testIntern).map(item => new Intern(item));
+
+
+    console.log(managerArray)
+
+
+    // filter array, check to see if it has an github. if yes make it an engineer
+
+
+    // filter array, check to see if it has an school. if yes make it an intern
+
+
+
+
+
+    // if (typeEmployee==="Engineer"){
+    //   return `
+    //   <article class="col mb-4">
+    //     <div class="card">
+    //       <div class="card-header text-center">
+    //           <h4 class="card-title">Name Here</h4>
+    //           <h5>Job Position</h5>
+    //       </div>
+    //       <div class="card-body">
+    //           <ul class="list-group list-group-flush">
+    //               <li class="list-group-item">ID: </li>
+    //               <li class="list-group-item">Email: </li>
+    //               <li class="list-group-item">GitHub : </li>
+    //           </ul>
+    //       </div>
+    //     </div>
+    //   </article>
+    //   `
+    // }
+    // if (typeEmployee==="Intern"){
+    //   return `
+    //   <article class="col mb-4">
+    //         <div class="card">
+    //           <div class="card-header text-center">
+    //               <h4 class="card-title">Name Here</h4>
+    //               <h5>Job Position</h5>
+    //           </div>
+    //           <div class="card-body">
+    //               <ul class="list-group list-group-flush">
+    //                   <li class="list-group-item">ID: </li>
+    //                   <li class="list-group-item">Email: </li>
+    //                   <li class="list-group-item">School : </li>
+    //               </ul>
+    //           </div>
+    //       </div>
+    //   </article>`
+    // }
+    // if (typeEmployee==="No More Employees"){
+    //   return ``
+    // }  
 }
 
 // todo make html 
@@ -118,4 +186,6 @@ function generateHTML(answers){
 
 }
 
-module.exports = generateHTML;
+renderEmployeeCards();
+
+module.exports = [renderEmployeeCards, generateHTML];

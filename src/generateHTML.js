@@ -6,6 +6,9 @@ const Intern = require('../lib/Intern');
 // think filter , map, loops, 
 // ask questions, push constructors, 
 // filter, map , push , join()
+
+const employeeArray = []
+
 function renderEmployeeCards(typeEmployee) {
     if (typeEmployee==="Engineer"){
       return `
@@ -70,32 +73,33 @@ function generateHTML(answers){
         </header>
     
         <main class="mx-3">
-            <section class="row row-cols-1 row-cols-md-3">
-                <!-- Manager Card Example -->
-                <article class="col mb-4">
-                    <div class="card">
-                        <div class="card-header text-center">
-                            <h4 class="card-title">${answers.name}</h4>
-                            <h5>Manager</h5>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">ID: ${answers.id}</li>
-                                <li class="list-group-item">Email: ${answers.email}</li>
-                                <li class="list-group-item">Office number : ${answers.officeNumber}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
+            // <section class="row row-cols-1 row-cols-md-3">
+            //     <!-- Manager Card Example -->
+            //     <article class="col mb-4">
+            //         <div class="card">
+            //             <div class="card-header text-center">
+            //                 <h4 class="card-title">${answers.name}</h4>
+            //                 <h5>Manager</h5>
+            //             </div>
+            //             <div class="card-body">
+            //                 <ul class="list-group list-group-flush">
+            //                     <li class="list-group-item">ID: ${answers.id}</li>
+            //                     <li class="list-group-item">Email: ${answers.email}</li>
+            //                     <li class="list-group-item">Office number : ${answers.officeNumber}</li>
+            //                 </ul>
+            //             </div>
+            //         </div>
+            //     </article>
                 
-                <!-- Engineer Card Example -->
-                ${renderEmployeeCards(answers.typeEmployee)}
+            //     <!-- Engineer Card Example -->
+            //     ${renderEmployeeCards(answers.typeEmployee)}
     
-                <!-- Intern Card Example -->
+            //     <!-- Intern Card Example -->
                 
     
                 
-              </section>
+            //   </section>
+            // insert function here 
     
         </main>
     

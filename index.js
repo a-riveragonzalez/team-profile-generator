@@ -2,10 +2,14 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateHTML = require("./src/generateHTML")
 
-// empty array 
-// push 
+// make an empty array where the questions will get pushed 
+// push questions depending on class 
+// map, filter ?
+// push to individual array then join them to a big array
 
 // todo an array of questions for user input (maybe this will change depending on classes..)
+const employeeArray = [];
+
 const questions = [
     {
         type: "input", 
@@ -27,12 +31,12 @@ const questions = [
         name: "officeNumber", 
         message: "what is your office number?"
     },
-    {
-        type: "list", 
-        name: "typeEmployee", 
-        message: "what type of employee would you like to add?",
-        choices: ["Engineer","Intern","No More Employees"],
-    }
+    // {
+    //     type: "list", 
+    //     name: "typeEmployee", 
+    //     message: "what type of employee would you like to add?",
+    //     choices: ["Engineer","Intern","No More Employees"],
+    // }
 ]
 
 
@@ -45,19 +49,27 @@ function writeToFile(fileName, data) {
 }
 
 // function to use inquirer to get user input at start
-function init() {
-    inquirer.prompt (questions)
-    .then(function(answers){
-        const htmlOutput = generateHTML(answers)
+async function init() {
+    let questioning = true;
 
-        if (answers.typeEmployee === "Engineer"){
-            console.log("i'm an engineer!")
-        } else if (answers.typeEmployee === "Intern"){
-            console.log("i'm an intern")
+    while (questioning) {
+        const answers = await inquirer.prompt (questions)
+
+        if (answers.typeEmployee === "No More Employees") {
+            questioning = false;
         }
 
-        writeToFile("team.html", htmlOutput)
-    })
+        employeeArray.push(answers);
+
+
+        
+    }
+
+    console.log(employeeArray)
+
+    // const htmlOutput = generateHTML(answers)
+    // writeToFile("team.html", htmlOutput)
+    
 }
 
 // Function call to initialize app

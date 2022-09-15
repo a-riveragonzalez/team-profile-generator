@@ -31,13 +31,31 @@ const questions = [
         name: "officeNumber", 
         message: "what is your office number?"
     },
+    {
+        type: "list", 
+        name: "typeEmployee", 
+        message: "what type of employee would you like to add?",
+        choices: ["Engineer","Intern","No More Employees"],
+    },
     // {
-    //     type: "list", 
-    //     name: "typeEmployee", 
-    //     message: "what type of employee would you like to add?",
-    //     choices: ["Engineer","Intern","No More Employees"],
+    //     type: "input", 
+    //     name: "github", 
+    //     message: "what is your github username?",
+    //     when(answers) {
+    //         return answers.typeEmployee === "Engineer"
+    //     }, 
+    // },
+    // {
+    //     type: "input", 
+    //     name: "school", 
+    //     message: "what is the name of your school?",
+    //     when(answers) {
+    //         return answers.typeEmployee === "Intern"
+    //     }, 
     // }
 ]
+
+
 
 
 
@@ -55,13 +73,31 @@ async function init() {
     while (questioning) {
         const answers = await inquirer.prompt (questions)
 
+        // if user chooses "no more employees" set quesioning to false and stop the loop
         if (answers.typeEmployee === "No More Employees") {
             questioning = false;
         }
 
+        // if this, then replace question about office number with question about github
+        if (answers.typeEmployee === "Engineer") {
+            questions.splice(3, 1, {
+                type: "input", 
+                name: "github", 
+                message: "what is your github username?",
+            })
+        }
+        
+        // if this, then replace question about office number with question about school
+        if (answers.typeEmployee === "Intern") {
+            questions.splice(3, 1, {
+                type: "input", 
+                name: "school", 
+                message: "what is the name of your school?",
+            })
+        }
+
+        // push the object with the answers to the empty employeeArray
         employeeArray.push(answers);
-
-
         
     }
 

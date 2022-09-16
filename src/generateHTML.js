@@ -57,7 +57,7 @@ function renderEmployeeCards(employeeArray) {
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">ID : ${answers.name.id}</li>
                             <li class="list-group-item">Email : ${answers.name.email}</li>
-                            <li class="list-group-item">GitHub : ${answers.name.github}</li>
+                            <li class="list-group-item">GitHub : <a href="https://github.com/${answers.name.github}" target="_blank" rel="noopener noreferrer">${answers.name.github}</a></li>
                         </ul>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 const { default: ListPrompt } = require("inquirer/lib/prompts/list") //? what is this?
+const Employee = require('../lib/Employee');
 const Manager = require('../lib/Manager');
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
@@ -17,23 +18,23 @@ function renderEmployeeCards(employeeArray) {
     const testingArray = [
         {
           name: 'arely',
-          id: 'asdfas',
-          email: 'asdfasd',
-          officeNumber: 'asdfasd',
+          id: '16',
+          email: 'arg@arg',
+          officeNumber: '3314',
           typeEmployee: 'Engineer'
         },
         {
           name: 'demi',
-          id: 'asdfasd',
-          email: 'asdfas',
-          github: 'dasdfasdf',
+          id: '10',
+          email: 'cutecat@',
+          github: 'catocodo',
           typeEmployee: 'Intern'
         },
         {
           name: 'ruby',
-          id: 'asdfas',
-          email: 'dfasdfas',
-          school: 'fsdfasd',
+          id: '4',
+          email: 'rwby@',
+          school: 'beacon',
           typeEmployee: 'No More Employees'
         }
     ]
@@ -58,14 +59,14 @@ function renderEmployeeCards(employeeArray) {
         let managerCard = `<article class="col mb-4">
                 <div class="card">
                     <div class="card-header text-center">
-                        <h4 class="card-title">${answers.name}</h4>
+                        <h4 class="card-title">${answers.name.name}</h4>
                         <h5>Manager</h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">ID: ${answers.id}</li>
-                            <li class="list-group-item">Email: ${answers.email}</li>
-                            <li class="list-group-item">Office number : ${answers.officeNumber}</li>
+                            <li class="list-group-item">ID: ${answers.name.id}</li>
+                            <li class="list-group-item">Email: ${answers.name.email}</li>
+                            <li class="list-group-item">Office number : ${answers.name.officeNumber}</li>
                         </ul>
                     </div>
                 </div>
@@ -78,14 +79,14 @@ function renderEmployeeCards(employeeArray) {
         let engineerCard = `<article class="col mb-4">
                 <div class="card">
                     <div class="card-header text-center">
-                        <h4 class="card-title">${answers.name}</h4>
+                        <h4 class="card-title">${answers.name.name}</h4>
                         <h5>Job Position</h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">ID: ${answers.id}</li>
-                            <li class="list-group-item">Email: ${answers.email}</li>
-                            <li class="list-group-item">GitHub : ${answers.github}</li>
+                            <li class="list-group-item">ID: ${answers.name.id}</li>
+                            <li class="list-group-item">Email: ${answers.name.email}</li>
+                            <li class="list-group-item">GitHub : ${answers.name.github}</li>
                         </ul>
                     </div>
                 </div>
@@ -98,14 +99,14 @@ function renderEmployeeCards(employeeArray) {
         let internCard = `<article class="col mb-4">
                 <div class="card">
                     <div class="card-header text-center">
-                        <h4 class="card-title">${answers.name}</h4>
+                        <h4 class="card-title">${answers.name.name}</h4>
                         <h5>Job Position</h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">ID: ${answers.id}</li>
-                            <li class="list-group-item">Email: ${answers.email}</li>
-                            <li class="list-group-item">School : ${answers.school}</li>
+                            <li class="list-group-item">ID: ${answers.name.id}</li>
+                            <li class="list-group-item">Email: ${answers.name.email}</li>
+                            <li class="list-group-item">School : ${answers.name.school}</li>
                         </ul>
                     </div>
                 </div>
@@ -114,14 +115,9 @@ function renderEmployeeCards(employeeArray) {
         htmlOutputArray.push(internCard);
     })
 
+
+    htmlOutputArray.join();
     console.log(htmlOutputArray)
-
-
-
-    // filter array, check to see if it has an github. if yes make it an engineer
-
-
-    // filter array, check to see if it has an school. if yes make it an intern
 
 }
 
@@ -146,33 +142,10 @@ function generateHTML(answers){
         </header>
     
         <main class="mx-3">
-            // <section class="row row-cols-1 row-cols-md-3">
-            //     <!-- Manager Card Example -->
-            //     <article class="col mb-4">
-            //         <div class="card">
-            //             <div class="card-header text-center">
-            //                 <h4 class="card-title">${answers.name}</h4>
-            //                 <h5>Manager</h5>
-            //             </div>
-            //             <div class="card-body">
-            //                 <ul class="list-group list-group-flush">
-            //                     <li class="list-group-item">ID: ${answers.id}</li>
-            //                     <li class="list-group-item">Email: ${answers.email}</li>
-            //                     <li class="list-group-item">Office number : ${answers.officeNumber}</li>
-            //                 </ul>
-            //             </div>
-            //         </div>
-            //     </article>
+            <section class="row row-cols-1 row-cols-md-3">
                 
-            //     <!-- Engineer Card Example -->
-            //     ${renderEmployeeCards(answers.typeEmployee)}
-    
-            //     <!-- Intern Card Example -->
                 
-    
-                
-            //   </section>
-            // insert function here 
+            </section>
     
         </main>
     

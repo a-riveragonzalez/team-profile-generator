@@ -36,7 +36,7 @@ function renderEmployeeCards(employeeArray) {
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">ID : ${answers.name.id}</li>
-                            <li class="list-group-item">Email : ${answers.name.email}</li>
+                            <li class="list-group-item">Email: <a href="mailto:${answers.name.email}">${answers.name.email}</a></li>
                             <li class="list-group-item">Office number : ${answers.name.officeNumber}</li>
                         </ul>
                     </div>
@@ -56,7 +56,7 @@ function renderEmployeeCards(employeeArray) {
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">ID : ${answers.name.id}</li>
-                            <li class="list-group-item">Email : ${answers.name.email}</li>
+                            <li class="list-group-item">Email: <a href="mailto:${answers.name.email}">${answers.name.email}</a></li>
                             <li class="list-group-item">GitHub : <a href="https://github.com/${answers.name.github}" target="_blank" rel="noopener noreferrer">${answers.name.github}</a></li>
                         </ul>
                     </div>
@@ -76,7 +76,7 @@ function renderEmployeeCards(employeeArray) {
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">ID : ${answers.name.id}</li>
-                            <li class="list-group-item">Email : ${answers.name.email}</li>
+                            <li class="list-group-item">Email: <a href="mailto:${answers.name.email}">${answers.name.email}</a></li>
                             <li class="list-group-item">School : ${answers.name.school}</li>
                         </ul>
                     </div>

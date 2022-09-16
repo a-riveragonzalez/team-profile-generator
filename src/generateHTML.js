@@ -51,7 +51,7 @@ function renderEmployeeCards(employeeArray) {
                 <div class="card">
                     <div class="card-header text-center">
                         <h4 class="card-title">${answers.name.name}</h4>
-                        <h5>Job Position</h5>
+                        <h5>Engineer</h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
@@ -71,7 +71,7 @@ function renderEmployeeCards(employeeArray) {
                 <div class="card">
                     <div class="card-header text-center">
                         <h4 class="card-title">${answers.name.name}</h4>
-                        <h5>Job Position</h5>
+                        <h5>Intern</h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">

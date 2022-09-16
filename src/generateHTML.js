@@ -4,41 +4,11 @@ const Manager = require('../lib/Manager');
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 
-// todo function that returns the license link (loop..?)
-// think filter , map, loops, 
-// ask questions, push constructors, 
-// filter, map , push , join()
-
 function renderEmployeeCards(employeeArray) {
     const answerArray = employeeArray;
 
     // this is the empty array that all the cards html will get pushed into
     const htmlOutputArray = []
-
-    // this is so i can test the function easily 
-    // const testingArray = [
-    //     {
-    //       name: 'arely',
-    //       id: '16',
-    //       email: 'arg@arg',
-    //       officeNumber: '3314',
-    //       typeEmployee: 'Engineer'
-    //     },
-    //     {
-    //       name: 'demi',
-    //       id: '10',
-    //       email: 'cutecat@',
-    //       github: 'catocodo',
-    //       typeEmployee: 'Intern'
-    //     },
-    //     {
-    //       name: 'ruby',
-    //       id: '4',
-    //       email: 'rwby@',
-    //       school: 'beacon',
-    //       typeEmployee: 'No More Employees'
-    //     }
-    // ]
 
     // if the object has the value of officenum, then true 
     const testManager = (answer) => (answer.officeNumber) ? true : false;

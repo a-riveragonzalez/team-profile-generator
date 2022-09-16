@@ -2,12 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const renderEmployeeCards = require("./src/generateHTML")[0];
 
-// make an empty array where the questions will get pushed 
-// push questions depending on class 
-// map, filter ?
-// push to individual array then join them to a big array
-
-// todo an array of questions for user input (maybe this will change depending on classes..)
+// an empty array where the questions will get pushed 
 const employeeArray = [];
 
 const questions = [
@@ -38,10 +33,6 @@ const questions = [
         choices: ["Engineer","Intern","No More Employees"],
     },
 ]
-
-
-
-
 
 // function to create html file for team
 function writeToFile(fileName, data) {

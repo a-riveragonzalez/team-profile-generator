@@ -38,25 +38,13 @@ function renderEmployeeCards(employeeArray) {
         }
     ]
 
-    // return console.log(testingArray);
+    // if the object has the value of officenum, then true 
+    const testManager = (answer) => (answer.officeNumber) ? true : false;
 
-    function testManager(answer){
-        if(answer.officeNumber){
-            return true;
-        }
-    }
+    const testEngineer = (answer) => (answer.github) ? true : false;
 
-    function testEngineer(answer){
-        if(answer.github){
-            return true;
-        }
-    }
+    const testIntern = (answer) => (answer.school) ? true : false; 
 
-    function testIntern(answer){
-        if(answer.school){
-            return true;
-        }
-    }
 
     // filter array, check to see if it has an office number. if yes make it a manager
     const managerArray = testingArray.filter(testManager).map(item => new Manager(item));
@@ -66,7 +54,68 @@ function renderEmployeeCards(employeeArray) {
     const internArray = testingArray.filter(testIntern).map(item => new Intern(item));
 
 
-    console.log(managerArray)
+    managerArray.forEach(function (answers){
+        let managerCard = `<article class="col mb-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4 class="card-title">${answers.name}</h4>
+                        <h5>Manager</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">ID: ${answers.id}</li>
+                            <li class="list-group-item">Email: ${answers.email}</li>
+                            <li class="list-group-item">Office number : ${answers.officeNumber}</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>`
+        
+        htmlOutputArray.push(managerCard);
+    })
+
+    engineerArray.forEach(function (answers){
+        let engineerCard = `<article class="col mb-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4 class="card-title">${answers.name}</h4>
+                        <h5>Job Position</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">ID: ${answers.id}</li>
+                            <li class="list-group-item">Email: ${answers.email}</li>
+                            <li class="list-group-item">GitHub : ${answers.github}</li>
+                        </ul>
+                    </div>
+                </div>
+            </article> `
+        
+        htmlOutputArray.push(engineerCard);
+    })
+
+    internArray.forEach(function (answers){
+        let internCard = `<article class="col mb-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4 class="card-title">${answers.name}</h4>
+                        <h5>Job Position</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">ID: ${answers.id}</li>
+                            <li class="list-group-item">Email: ${answers.email}</li>
+                            <li class="list-group-item">School : ${answers.school}</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>`
+
+        htmlOutputArray.push(internCard);
+    })
+
+    console.log(htmlOutputArray)
+
 
 
     // filter array, check to see if it has an github. if yes make it an engineer
@@ -74,50 +123,6 @@ function renderEmployeeCards(employeeArray) {
 
     // filter array, check to see if it has an school. if yes make it an intern
 
-
-
-
-
-    // if (typeEmployee==="Engineer"){
-    //   return `
-    //   <article class="col mb-4">
-    //     <div class="card">
-    //       <div class="card-header text-center">
-    //           <h4 class="card-title">Name Here</h4>
-    //           <h5>Job Position</h5>
-    //       </div>
-    //       <div class="card-body">
-    //           <ul class="list-group list-group-flush">
-    //               <li class="list-group-item">ID: </li>
-    //               <li class="list-group-item">Email: </li>
-    //               <li class="list-group-item">GitHub : </li>
-    //           </ul>
-    //       </div>
-    //     </div>
-    //   </article>
-    //   `
-    // }
-    // if (typeEmployee==="Intern"){
-    //   return `
-    //   <article class="col mb-4">
-    //         <div class="card">
-    //           <div class="card-header text-center">
-    //               <h4 class="card-title">Name Here</h4>
-    //               <h5>Job Position</h5>
-    //           </div>
-    //           <div class="card-body">
-    //               <ul class="list-group list-group-flush">
-    //                   <li class="list-group-item">ID: </li>
-    //                   <li class="list-group-item">Email: </li>
-    //                   <li class="list-group-item">School : </li>
-    //               </ul>
-    //           </div>
-    //       </div>
-    //   </article>`
-    // }
-    // if (typeEmployee==="No More Employees"){
-    //   return ``
-    // }  
 }
 
 // todo make html 

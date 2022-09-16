@@ -34,13 +34,6 @@ const questions = [
     },
 ]
 
-// function to create html file for team
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) =>
-        (err) ? console.log("error") : console.log("HTML File Generated")
-    )
-}
-
 // function to use inquirer to get user input at start
 async function init() {
     let questioning = true;
@@ -76,11 +69,16 @@ async function init() {
         
     }
 
-    // console.log(employeeArray)
-
     const htmlOutput = renderEmployeeCards(employeeArray)
-    // writeToFile("team.html", htmlOutput)
+    writeToFile("team.html", htmlOutput)
     
+}
+
+// function to create html file for team
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) =>
+        (err) ? console.log("error") : console.log("HTML File Generated")
+    )
 }
 
 // Function call to initialize app

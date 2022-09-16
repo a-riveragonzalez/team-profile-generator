@@ -10,34 +10,35 @@ const Intern = require('../lib/Intern');
 // filter, map , push , join()
 
 function renderEmployeeCards(employeeArray) {
-    // const answerArray = employeeArray;
+    const answerArray = employeeArray;
+
     // this is the empty array that all the cards html will get pushed into
     const htmlOutputArray = []
 
     // this is so i can test the function easily 
-    const testingArray = [
-        {
-          name: 'arely',
-          id: '16',
-          email: 'arg@arg',
-          officeNumber: '3314',
-          typeEmployee: 'Engineer'
-        },
-        {
-          name: 'demi',
-          id: '10',
-          email: 'cutecat@',
-          github: 'catocodo',
-          typeEmployee: 'Intern'
-        },
-        {
-          name: 'ruby',
-          id: '4',
-          email: 'rwby@',
-          school: 'beacon',
-          typeEmployee: 'No More Employees'
-        }
-    ]
+    // const testingArray = [
+    //     {
+    //       name: 'arely',
+    //       id: '16',
+    //       email: 'arg@arg',
+    //       officeNumber: '3314',
+    //       typeEmployee: 'Engineer'
+    //     },
+    //     {
+    //       name: 'demi',
+    //       id: '10',
+    //       email: 'cutecat@',
+    //       github: 'catocodo',
+    //       typeEmployee: 'Intern'
+    //     },
+    //     {
+    //       name: 'ruby',
+    //       id: '4',
+    //       email: 'rwby@',
+    //       school: 'beacon',
+    //       typeEmployee: 'No More Employees'
+    //     }
+    // ]
 
     // if the object has the value of officenum, then true 
     const testManager = (answer) => (answer.officeNumber) ? true : false;
@@ -48,11 +49,11 @@ function renderEmployeeCards(employeeArray) {
 
 
     // filter array, check to see if it has an office number. if yes make it a manager
-    const managerArray = testingArray.filter(testManager).map(item => new Manager(item));
+    const managerArray = answerArray.filter(testManager).map(item => new Manager(item));
 
-    const engineerArray = testingArray.filter(testEngineer).map(item => new Engineer(item));
+    const engineerArray = answerArray.filter(testEngineer).map(item => new Engineer(item));
 
-    const internArray = testingArray.filter(testIntern).map(item => new Intern(item));
+    const internArray = answerArray.filter(testIntern).map(item => new Intern(item));
 
 
     managerArray.forEach(function (answers){
@@ -64,8 +65,8 @@ function renderEmployeeCards(employeeArray) {
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">ID: ${answers.name.id}</li>
-                            <li class="list-group-item">Email: ${answers.name.email}</li>
+                            <li class="list-group-item">ID : ${answers.name.id}</li>
+                            <li class="list-group-item">Email : ${answers.name.email}</li>
                             <li class="list-group-item">Office number : ${answers.name.officeNumber}</li>
                         </ul>
                     </div>
@@ -84,8 +85,8 @@ function renderEmployeeCards(employeeArray) {
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">ID: ${answers.name.id}</li>
-                            <li class="list-group-item">Email: ${answers.name.email}</li>
+                            <li class="list-group-item">ID : ${answers.name.id}</li>
+                            <li class="list-group-item">Email : ${answers.name.email}</li>
                             <li class="list-group-item">GitHub : ${answers.name.github}</li>
                         </ul>
                     </div>
@@ -104,8 +105,8 @@ function renderEmployeeCards(employeeArray) {
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">ID: ${answers.name.id}</li>
-                            <li class="list-group-item">Email: ${answers.name.email}</li>
+                            <li class="list-group-item">ID : ${answers.name.id}</li>
+                            <li class="list-group-item">Email : ${answers.name.email}</li>
                             <li class="list-group-item">School : ${answers.name.school}</li>
                         </ul>
                     </div>
@@ -115,14 +116,12 @@ function renderEmployeeCards(employeeArray) {
         htmlOutputArray.push(internCard);
     })
 
-
-    htmlOutputArray.join();
-    console.log(htmlOutputArray)
+    return generateHTML(htmlOutputArray.join())
 
 }
 
 // todo make html 
-function generateHTML(answers){
+function generateHTML(htmloutput){
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -144,6 +143,7 @@ function generateHTML(answers){
         <main class="mx-3">
             <section class="row row-cols-1 row-cols-md-3">
                 
+            ${htmloutput}
                 
             </section>
     
@@ -163,7 +163,5 @@ function generateHTML(answers){
     // ? that GitHub profile opens in a new tab (a href?)
 
 }
-
-renderEmployeeCards();
 
 module.exports = [renderEmployeeCards, generateHTML];

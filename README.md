@@ -9,6 +9,8 @@ Technologies used: JavaScript, Node.js, Inquirer, Bootstrap, HTML, CSS
 - [Credits](#credits)
 - [License](#license)
 - [Preview](#preview)
+- [Demo](#demo)
+- [Questions](#questions)
 ## Installation
 N/A
 ## Usage
@@ -29,6 +31,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## GitHub Repository
 https://github.com/a-riveragonzalez/team-profile-generator
 ## Preview
+![team-profile-generator-gif](team-profile-generator.gif)
+
+## Demo
+https://drive.google.com/file/d/1Vvxj9e8SXQXkVV38JJYxkh3kpGb69ckw/view?usp=sharing
 
 ## Questions
 If you have any questions, feel free to reach me at : 

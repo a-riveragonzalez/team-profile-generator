@@ -70,7 +70,7 @@ async function init() {
     }
 
     const htmlOutput = renderEmployeeCards(employeeArray)
-    writeToFile("team.html", htmlOutput)
+    writeToFile("./dist/team.html", htmlOutput)
     
 }
 

@@ -29,9 +29,9 @@ function renderEmployeeCards(employeeArray) {
     managerArray.forEach(function (answers){
         let managerCard = `<article class="col mb-4">
                 <div class="card">
-                    <div class="card-header text-center">
+                    <div class="card-header text-center bg-blue">
                         <h4 class="card-title">${answers.name.name}</h4>
-                        <h5>Manager</h5>
+                        <h5><i class="fa-solid fa-mug-hot"></i> Manager</h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
@@ -49,9 +49,9 @@ function renderEmployeeCards(employeeArray) {
     engineerArray.forEach(function (answers){
         let engineerCard = `<article class="col mb-4">
                 <div class="card">
-                    <div class="card-header text-center">
+                    <div class="card-header text-center bg-blue">
                         <h4 class="card-title">${answers.name.name}</h4>
-                        <h5>Engineer</h5>
+                        <h5><i class="fa-solid fa-gears"></i> Engineer</h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
@@ -69,9 +69,9 @@ function renderEmployeeCards(employeeArray) {
     internArray.forEach(function (answers){
         let internCard = `<article class="col mb-4">
                 <div class="card">
-                    <div class="card-header text-center">
+                    <div class="card-header text-center bg-blue">
                         <h4 class="card-title">${answers.name.name}</h4>
-                        <h5>Intern</h5>
+                        <h5><i class="fa-solid fa-user-graduate"></i> Intern</h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
@@ -102,11 +102,22 @@ function generateHTML(htmloutput){
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://kit.fontawesome.com/2af300434d.js"
+            crossorigin="anonymous">
+        </script>
+        
         <link rel="stylesheet" href="style.css" />
         <title>Document</title>
     </head>
-    <body>
-        <header class="jumbotron mb-3">
+    <body class="bg-dark">
+        <header class="jumbotron mb-3 bg-purple">
             <h1 class="display-4 d-flex justify-content-center">My Team Profile</h1>
         </header>
     
@@ -125,13 +136,6 @@ function generateHTML(htmloutput){
         <script src="./assets/js/script.js"></script>
     </body>
     </html>`
-
-    // todo make email clickable in html 
-    // ? default email program opens and populates the TO field of the email with the address
-
-    // todo make github username clickable
-    // ? that GitHub profile opens in a new tab (a href?)
-
 }
 
 module.exports = [renderEmployeeCards, generateHTML];

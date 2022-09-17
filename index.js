@@ -19,7 +19,20 @@ const questions = [
     {
         type: "input", 
         name: "email", 
-        message: "what is your email?"
+        message: "what is your email?",
+        validate: function (input) {
+            { 
+                // Regex mail check (return true if valid mail)
+                validEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(input);
+
+                if(validEmail){
+                    return true;
+                } else {
+                    console.log(" --- Please enter a valid email address ---");
+                    return false;
+                }
+            }
+        }
     },
     {
         type: "input", 

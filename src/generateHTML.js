@@ -10,7 +10,7 @@ function renderEmployeeCards(employeeArray) {
     // this is the empty array that all the cards html will get pushed into
     const htmlOutputArray = []
 
-    // if the object has the value of officenum, then true 
+    // functions that check if a specific value in the object. if it exists, then this returns true
     const testManager = (answer) => (answer.officeNumber) ? true : false;
 
     const testEngineer = (answer) => (answer.github) ? true : false;
@@ -18,14 +18,14 @@ function renderEmployeeCards(employeeArray) {
     const testIntern = (answer) => (answer.school) ? true : false; 
 
 
-    // filter array, check to see if it has an office number. if yes make it a manager
+    // filter arrays, check to see if they have something specfic to the classes. if yes make it that class
     const managerArray = answerArray.filter(testManager).map(item => new Manager(item));
 
     const engineerArray = answerArray.filter(testEngineer).map(item => new Engineer(item));
 
     const internArray = answerArray.filter(testIntern).map(item => new Intern(item));
 
-
+    // these functions create the html strings that will get pushed into the answer array
     managerArray.forEach(function (answers){
         let managerCard = `<article class="col mb-4">
                 <div class="card">
@@ -90,7 +90,7 @@ function renderEmployeeCards(employeeArray) {
 
 }
 
-// todo make html 
+// returns the entire html as a string 
 function generateHTML(htmloutput){
     return `<!DOCTYPE html>
     <html lang="en">
